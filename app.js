@@ -16,6 +16,9 @@
 
   // 登録ボタンに対してタスク登録イベントを設定
   addbutton.addEventListener('submit', event => {
+  // デフォルトの処理をキャンセルする
+  event.preventDefault()
+
     // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
     const task = addtextbox.value;
     addTask(task);
