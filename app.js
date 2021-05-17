@@ -16,11 +16,13 @@ submit.addEventListener('click', () => {
 
 });
 
-const showTodos {};
-
 item.done = false; // 完了はひとまずBoolean値で設定
 item.todo = todo.value 
 
-}
+// フォームをリセット
+todo.value = '';
+
+console.log(item); // 確認
 
 }
+
