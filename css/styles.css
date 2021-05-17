@@ -27,7 +27,7 @@ form {
   display: flex;
 }
 
-input[id="todo"] {
+input[id="input-todo-box"] {
   width: 310px;
   height: 30px;
   outline: 0;
