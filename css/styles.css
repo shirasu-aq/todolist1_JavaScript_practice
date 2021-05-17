@@ -27,7 +27,7 @@ form {
   display: flex;
 }
 
-input[type="text"] {
+input[id="todo"] {
   width: 310px;
   height: 30px;
   outline: 0;
