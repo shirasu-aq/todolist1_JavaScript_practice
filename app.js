@@ -12,6 +12,7 @@ clearButton.addEventListener("click", () => removeAllTask(clearButton));
 const removeAllTask = (clearButton) => {
   const removeAllTasks = clearButton.closest("li");
   todoListElement.remove(removeAllTasks);
+  this.todoListElement;
 };
 
 // 登録したタスクを表示
