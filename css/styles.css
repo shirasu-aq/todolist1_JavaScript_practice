@@ -39,7 +39,7 @@ input[id="input-todo-box"] {
 button {
   display: inline-block;
   font-size: 1.5em;
-  color: #53BDFF;
+  color: #53bdff;
   background-color: #fff;
   border: none;
   outline: 0;
@@ -59,7 +59,7 @@ ul {
 }
 
 li {
-  border-bottom: 1px solid #53BDFF;
+  border-bottom: 1px solid #53bdff;
   padding-bottom: 15px;
   padding-top: 15px;
   font-size: 1.3em;
