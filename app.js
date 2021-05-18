@@ -1,54 +1,60 @@
 "use strict";
 
 // DOM操作
-const addbutton = document.getElementById("submit");
+const addButton = document.getElementById("submit");
 const todoListElement = document.getElementById("todo-list");
-const addtextbox = document.getElementById("input-todo-box");
-
-//clearボタンをトリガーにする
-const clearbutton = document.getElementById("clear");
-clearbutton.addEventListener("click", () => removeAllTask(clearbutton));
-// クリアボタンを押して全てのタスクを削除
-const removeAllTask = (clearbutton) => {
-  const removeAllTasks = clearbutton.closest("li");
-  todoListElement.remove(removeAllTasks);
-};
+const addTextBox = document.getElementById("input-todo-box");
 
 // 登録したタスクを表示
 const addTask = (task) => {
-  // チェックボタン表示
-  const checkbutton = document.createElement("input");
-  checkbutton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
-  // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
-
-  // ×ボタン表示
-  const deletebutton = document.getElementById("delete");
-  // クリックしたらremoveTaskが発動
-  deletebutton.addEventListener("click", () => removeATask(deletebutton));
-
+  // li タグ作成
   const listItem = document.createElement("li");
-  // <li>で表示されるテキストを、引数でとったタスクの文字列にする
-  listItem.innerText = task;
 
-  // 動的に子要素を追加
+  // <span id='delete'>×</span>を作成
+  const deleteButton = document.createElement("span");
+  deleteButton.innerText = "×";
+  deleteButton.setAttribute("id", "delete");
+  listItem.appendChild(deleteButton);
+  /**
+   * 今この状態
+   * <li>
+   *  <span id='delete'>×</span>
+   * </li>
+   */
+
+  // <input type='checkbox' name='check'>作成
+  const checkButton = document.createElement("input");
+  checkButton.setAttribute("type", "checkbox");
+  checkButton.setAttribute("name", "check");
+  listItem.appendChild(checkButton);
+
+  /**
+   * 今この状態
+   * <li>
+   *  <span id='delete'>×</span>
+   *  <input type='checkbox' name='check'>
+   * </li>
+   */
+
+  // <label style='text-decoration: none; color: rgb(47, 79, 79);'>todo</label>を追加
+  const todoDescription = document.createElement("label");
+  todoDescription.innerText = task;
+  todoDescription.setAttribute(
+    "style",
+    "text-decoration: none; color: rgb(47, 79, 79);"
+  );
+  listItem.appendChild(todoDescription);
+
   todoListElement.appendChild(listItem);
-  listItem.append(deletebutton, checkbutton);
-
-  // 登録したタスクを削除
-  const removeTask = (removeButton) => {
-    const targetTask = removeButton.closest("li");
-    listItem.remove(targetTask);
-  };
 };
-console.log(addbutton);
+
 // 登録ボタンに対してタスク登録イベントを設定
-addbutton.addEventListener("submit", (event) => {
-  console.log("クリック");
+addButton.addEventListener("submit", (event) => {
   // デフォルトの処理をキャンセルする
   event.preventDefault();
 
   // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
-  const task = addtextbox.value;
+  const task = addTextBox.value;
   addTask(task);
-  addtextbox.value = "";
+  addTextBox.value = "";
 });
