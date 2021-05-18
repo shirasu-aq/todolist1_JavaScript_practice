@@ -6,40 +6,48 @@ const todoListElement = document.getElementById("todo-list");
 const addtextbox = document.getElementById("input-todo-box");
 
 //clearボタンをトリガーにする
-const clearbutton = document.getElementById("clear");
-clearbutton.addEventListener("click", () => removeAllTask(clearbutton));
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => removeAllTask(clearButton));
 // クリアボタンを押して全てのタスクを削除
-const removeAllTask = (clearbutton) => {
-  const removeAllTasks = clearbutton.closest("li");
+const removeAllTask = (clearButton) => {
+  const removeAllTasks = clearButton.closest("li");
   todoListElement.remove(removeAllTasks);
 };
 
 // 登録したタスクを表示
 const addTask = (task) => {
-  // チェックボタン表示
-  const checkbutton = document.createElement("input");
-  checkbutton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
-  // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
+  // liタグの生成
+  const listItem = document.createElement("li");
 
   // ×ボタン表示
-  const deletebutton = document.getElementById("delete");
-  // クリックしたらremoveTaskが発動
-  deletebutton.addEventListener("click", () => removeATask(deletebutton));
+  const deleteButton = document.createElement("span");
+  deleteButton.innerText = "×";
+  deleteButton.setAttribute("id", "delete");
+  listItem.append(deleteButton);
+  deleteButton.addEventListener("click", () => deleteTask(deleteButton));
 
-  const listItem = document.createElement("li");
-  // <li>で表示されるテキストを、引数でとったタスクの文字列にする
-  listItem.innerText = task;
+  // チェックボタン表示
+  const checkButton = document.createElement("input");
+  checkButton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
+  // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
+  listItem.append(checkButton);
+
+  // 登録されたテキストを要素で表示（ラベル要素使用）
+  const todoDescription = document.createElement("label");
+  // 入力されたテキストを引数でとった文字列にする
+  todoDescription.innerText = task;
+  listItem.append(todoDescription);
 
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
-  listItem.append(deletebutton, checkbutton);
 
   // 登録したタスクを削除
-  const removeTask = (removeButton) => {
-    const targetTask = removeButton.closest("li");
+  const deleteTask = (deleteButton) => {
+    const targetTask = deleteButton.closest("li");
     listItem.remove(targetTask);
   };
 };
+
 console.log(addbutton);
 // 登録ボタンに対してタスク登録イベントを設定
 addbutton.addEventListener("submit", (event) => {
