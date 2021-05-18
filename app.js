@@ -7,11 +7,21 @@ const addtextbox = document.getElementById("input-todo-box");
 
 // 登録したタスクを表示
 const addTask = (task) => {
+  // チェックボタン表示
+  const checkbutton = document.createElement("input");
+  checkbutton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
+  // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
+
+  // ×ボタン表示
+  const deletebutton = document.getElementById("delete");
+
   const listItem = document.createElement("li");
   // <li>で表示されるテキストを、引数でとったタスクの文字列にする
   listItem.innerText = task;
+
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
+  listItem.append(deletebutton, checkbutton);
 };
 console.log(addbutton);
 // 登録ボタンに対してタスク登録イベントを設定
@@ -25,20 +35,3 @@ addbutton.addEventListener("submit", (event) => {
   addTask(task);
   addtextbox.value = "";
 });
-
-// ↓関係ないが残しておく
-
-// // 入力したTodoを配列として保存
-// const todos = [];
-
-//   // 登録ボタンを押した時の挙動
-// addbutton.addEventListener('click', () => {
-// // 変数todoにテキストボックスに入力した文字をvalueプロパティを用いて代入
-// // const todo = textbox.value;
-// const todo = document.createElement('li');
-// // 入力したテキストボックスを空にする
-// textbox.value = '';
-
-// todo.innerText = textbox.value;
-// todoListElement.appendChild(todo);
-// });
