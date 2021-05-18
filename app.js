@@ -14,6 +14,8 @@ const addTask = (task) => {
 
   // ×ボタン表示
   const deletebutton = document.getElementById("delete");
+  // クリックしたらremoveTaskが発動
+  deletebutton.addEventListener("click", () => removeTask(deletebutton));
 
   const listItem = document.createElement("li");
   // <li>で表示されるテキストを、引数でとったタスクの文字列にする
@@ -22,6 +24,12 @@ const addTask = (task) => {
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
   listItem.append(deletebutton, checkbutton);
+
+  // 登録したタスクを削除
+  const removeTask = (removeButton) => {
+    const targetTask = removeButton.closest("li");
+    listItem.remove(targetTask);
+  };
 };
 console.log(addbutton);
 // 登録ボタンに対してタスク登録イベントを設定
