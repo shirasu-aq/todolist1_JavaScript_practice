@@ -5,6 +5,15 @@ const addbutton = document.getElementById("submit");
 const todoListElement = document.getElementById("todo-list");
 const addtextbox = document.getElementById("input-todo-box");
 
+//clearボタンをトリガーにする
+const clearbutton = document.getElementById("clear");
+clearbutton.addEventListener("click", () => removeAllTask(clearbutton));
+// クリアボタンを押して全てのタスクを削除
+const removeAllTask = (clearbutton) => {
+  const removeAllTasks = clearbutton.closest("li");
+  todoListElement.remove(removeAllTasks);
+};
+
 // 登録したタスクを表示
 const addTask = (task) => {
   // チェックボタン表示
@@ -15,7 +24,7 @@ const addTask = (task) => {
   // ×ボタン表示
   const deletebutton = document.getElementById("delete");
   // クリックしたらremoveTaskが発動
-  deletebutton.addEventListener("click", () => removeTask(deletebutton));
+  deletebutton.addEventListener("click", () => removeATask(deletebutton));
 
   const listItem = document.createElement("li");
   // <li>で表示されるテキストを、引数でとったタスクの文字列にする
