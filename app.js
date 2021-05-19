@@ -68,6 +68,14 @@ clearButton.addEventListener("click", () => removeAllTask(clearButton));
 //   console.log("reset");
 //   const resetTasks = document.createAttribute("id", "todo-list");
 
+// // 元々の関数 todoListElementの中身を空っぽにする
+// const removeAllTask = () => {
+//   todoListElement.innerHTML = "";
+// };
+
+// 解放その2 todoListElementの子要素があったら、最初の子要素を削除する
 const removeAllTask = () => {
-  todoListElement.innerHTML = "";
+  while (todoListElement.firstChild) {
+    todoListElement.removeChild(todoListElement.firstChild);
+  }
 };
