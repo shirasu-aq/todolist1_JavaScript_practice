@@ -16,8 +16,6 @@ const addTask = (task) => {
   deleteButton.innerText = "×";
   deleteButton.setAttribute("id", "delete");
   listItem.append(deleteButton);
-  deleteButton.addEventListener("click", () => deleteTask(deleteButton));
-  console.log("×ボタン表示");
 
   // チェックボタン表示
   const checkButton = document.createElement("input");
@@ -38,10 +36,22 @@ const addTask = (task) => {
   console.log("listItemを子要素として追加");
 
   // 登録したタスクを削除
+  deleteButton.addEventListener("click", () => deleteTask(deleteButton));
+  console.log("×ボタン表示");
   const deleteTask = () => {
     // セレクタの条件に合う、最も近い祖先要素を取得
     const targetTask = deleteButton.closest("li");
     listItem.remove(targetTask);
+  };
+
+  //チェックボタンを押したら完了
+  checkButton.addEventListener("click", () => completeTask(checkButton));
+  const completeTask = () => {
+    // チェックマークをつける
+    // checkButton.setAttribute("checked", "checked");
+    const targetTask = checkButton.closest("li");
+    // 特定の要素を追加
+    targetTask.classList.add("isComplete");
   };
 };
 
@@ -71,3 +81,23 @@ clearButton.addEventListener("click", () => removeAllTask(clearButton));
 const removeAllTask = () => {
   todoListElement.innerHTML = "";
 };
+
+// // チェックでTodoの完了
+// const completeCheck = document.createElement("input");
+// checkButton.setAttribute("checked", "checked");
+// //  チェックボタンにイベント追加
+// completeCheck.addEventListener("click", () => completeTask(checkButton));
+// const completeTask = () => {
+//   const targetTask = completeButton.closest("li");
+//   // 特定の要素を追加
+//   targetTask.classList.add("isComplete");
+// };
+
+// function changelinethrough(target) {
+//   var obj = document.getElementById(target);
+//   if (obj.style.textDecoration == "line-through") {
+//     obj.style.textDecoration = "none";
+//   } else {
+//     obj.style.textDecoration = "line-through";
+//   }
+// }

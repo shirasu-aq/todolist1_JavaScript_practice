@@ -87,3 +87,8 @@ a {
   font-size: 1.2em;
   cursor: pointer;
 }
+
+.isComplete {
+  text-decoration-line: line-through;
+  text-decoration-color: red;
+}
