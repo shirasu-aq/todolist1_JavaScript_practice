@@ -23,6 +23,13 @@ const addTask = (task) => {
   // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
   listItem.append(checkButton);
   console.log("チェックボタン表示");
+  $("checkButton").click(function () {
+    if ($(this).is(":checked")) {
+      $(this).closest("tr").css("text-decoration", "line-through");
+    } else {
+      $(this).closest("tr").css("text-decoration", "none");
+    }
+  });
 
   // 登録されたテキストを要素で表示（ラベル要素使用）
   const todoDescription = document.createElement("label");
@@ -44,15 +51,17 @@ const addTask = (task) => {
     listItem.remove(targetTask);
   };
 
-  //チェックボタンを押したら完了
-  checkButton.addEventListener("click", () => completeTask(checkButton));
-  const completeTask = () => {
-    // チェックマークをつける
-    // checkButton.setAttribute("checked", "checked");
-    const targetTask = checkButton.closest("li");
-    // 特定の要素を追加
-    targetTask.classList.add("isComplete");
-  };
+  // //チェックボタンを押したら完了
+  // checkButton.addEventListener("click", () => completeTask(checkButton));
+  // const completeTask = () => {
+  //   // チェックマークをつける
+  //   // checkButton.setAttribute("checked", "checked");
+  //   const targetTask = checkButton.closest("li");
+  //   // 特定の要素を追加
+  //   targetTask.classList.add("isComplete");
+  // };
+
+  // const ch = document.form1.ch1.checked;
 };
 
 // 登録ボタンに対してタスク登録イベントを設定
@@ -63,9 +72,9 @@ addButton.addEventListener("submit", () => {
 
   // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
   const task = addTextbox.value;
+  console.log("タスク登録メソッドに値を渡す");
   addTask(task);
   addTextbox.value = "";
-  console.log("タスク登録メソッドに値を渡す");
 });
 
 //clearボタンをトリガーにする
