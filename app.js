@@ -16,6 +16,18 @@ const addTask = (task) => {
   // チェックボタン表示
   const checkButton = document.createElement("input");
   checkButton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
+  checkButton.setAttribute("id", "todo-checkbox");
+  // チェックボックスにクリックイベントを付与
+  checkButton.addEventListener("click", () => {
+    // 登録されたテキストを要素で表示（ラベル要素使用）を取得
+    const todoDescription = listItem.lastChild;
+    // チェックボックスがチェックされているかどうかでstyleを変えるために、チェック状態かどうかを派別し、classを変える
+    if (checkButton.checked) {
+      todoDescription.setAttribute("class", "isChecked");
+    } else {
+      todoDescription.removeAttribute("class", "isChecked");
+    }
+  });
   // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
   listItem.appendChild(checkButton);
 
