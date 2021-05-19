@@ -36,6 +36,12 @@ input[id="input-todo-box"] {
   display: inline-block;
 }
 
+/** チェックONなら表示 */
+input:checked + label {
+  text-decoration: line-through;
+  color: red;
+}
+
 button {
   display: inline-block;
   font-size: 1.5em;
