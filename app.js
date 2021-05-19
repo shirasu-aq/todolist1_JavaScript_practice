@@ -1,10 +1,5 @@
 "use strict";
 
-// DOM操作
-const addButton = document.getElementById("submit");
-const todoListElement = document.getElementById("todo-list");
-const addTextbox = document.getElementById("input-todo-box");
-
 // 登録したタスクを表示
 const addTask = (task) => {
   // liタグの生成
@@ -28,6 +23,7 @@ const addTask = (task) => {
   todoDescription.innerText = task;
   listItem.appendChild(todoDescription);
 
+  const todoListElement = document.getElementById("todo-list");
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
 
@@ -40,11 +36,13 @@ const addTask = (task) => {
   };
 };
 
+const addButton = document.getElementById("submit");
 // 登録ボタンに対してタスク登録イベントを設定
 addButton.addEventListener("submit", () => {
   // ページのリロードを止める（デフォルトの処理をキャンセルする）
   event.preventDefault();
 
+  const addTextbox = document.getElementById("input-todo-box");
   // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
   const task = addTextbox.value;
   // 渡された値をaddする
