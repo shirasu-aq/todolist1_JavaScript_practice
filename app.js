@@ -7,10 +7,12 @@ const addTextbox = document.getElementById("input-todo-box");
 
 //clearボタンをトリガーにする
 const clearButton = document.getElementById("clear");
-clearButton.addEventListener("click", () => removeAllTask());
+clearButton.addEventListener("click", () => removeAllTask(clearButton));
 // クリアボタンを押して全てのタスクを削除
-const removeAllTask = () => {
-  todoListElement.innerHTML = "";
+const removeAllTask = (clearButton) => {
+  const removeAllTasks = clearButton.closest("li");
+  todoListElement.remove(removeAllTasks);
+  this.todoListElement;
 };
 
 // 登録したタスクを表示
