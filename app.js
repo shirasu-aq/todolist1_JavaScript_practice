@@ -14,19 +14,19 @@ const addTask = (task) => {
   const deleteButton = document.createElement("span");
   deleteButton.innerText = "×";
   deleteButton.setAttribute("id", "delete");
-  listItem.append(deleteButton);
+  listItem.appendChild(deleteButton);
 
   // チェックボタン表示
   const checkButton = document.createElement("input");
   checkButton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
   // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
-  listItem.append(checkButton);
+  listItem.appendChild(checkButton);
 
   // 登録されたテキストを要素で表示（ラベル要素使用）
   const todoDescription = document.createElement("label");
   // 入力されたテキストを引数でとった文字列にする
   todoDescription.innerText = task;
-  listItem.append(todoDescription);
+  listItem.appendChild(todoDescription);
 
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
