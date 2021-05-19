@@ -1,9 +1,9 @@
 "use strict";
 
 // DOM操作
-const addbutton = document.getElementById("submit");
+const addButton = document.getElementById("submit");
 const todoListElement = document.getElementById("todo-list");
-const addtextbox = document.getElementById("input-todo-box");
+const addTextbox = document.getElementById("input-todo-box");
 
 //clearボタンをトリガーにする
 const clearButton = document.getElementById("clear");
@@ -49,15 +49,14 @@ const addTask = (task) => {
   };
 };
 
-console.log(addbutton);
 // 登録ボタンに対してタスク登録イベントを設定
-addbutton.addEventListener("submit", (event) => {
+addButton.addEventListener("submit", (event) => {
   console.log("クリック");
   // デフォルトの処理をキャンセルする
   event.preventDefault();
 
   // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
-  const task = addtextbox.value;
+  const task = addTextbox.value;
   addTask(task);
-  addtextbox.value = "";
+  addTextbox.value = "";
 });
