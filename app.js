@@ -1,28 +1,45 @@
-'use strict'
+"use strict";
 
-{
-  const todo = document.getElementById('todo');   
-  const submit = document.getElementById('submit');
+// DOM操作
+const addButton = document.getElementById("submit");
+const todoListElement = document.getElementById("todo-list");
+const addTextbox = document.getElementById("input-todo-box");
 
-  // 登録ボタン
-submit.addEventListener('click', () => {
-  const todo = textboxElement.value;
-  textboxElement.value = '';
+// 登録したタスクを表示
+const addTask = (task) => {
+  // liタグの生成
+  const listItem = document.createElement("li");
 
-  if(todo) {
-    todos.push(todo);
-    showTodos();
-  }
+  // ×ボタン表示
+  const deleteButton = document.createElement("span");
+  deleteButton.innerText = "×";
+  deleteButton.setAttribute("id", "delete");
+  listItem.append(deleteButton);
 
+  // チェックボタン表示
+  const checkButton = document.createElement("input");
+  checkButton.setAttribute("type", "checkbox"); // [or] input.type = 'checkbox';
+  // checkbutton.setAttribute("checked", "checked"); // [or] input.checked = true;
+  listItem.append(checkButton);
+
+  // 登録されたテキストを要素で表示（ラベル要素使用）
+  const todoDescription = document.createElement("label");
+  // 入力されたテキストを引数でとった文字列にする
+  todoDescription.innerText = task;
+  listItem.append(todoDescription);
+
+  // 動的に子要素を追加
+  todoListElement.appendChild(listItem);
+};
+
+// 登録ボタンに対してタスク登録イベントを設定
+addButton.addEventListener("submit", (event) => {
+  console.log("クリック");
+  // デフォルトの処理をキャンセルする
+  event.preventDefault();
+
+  // インプット要素に入力された値を取得し、タスク登録メソッドに値を渡す
+  const task = addTextbox.value;
+  addTask(task);
+  addTextbox.value = "";
 });
-
-item.done = false; // 完了はひとまずBoolean値で設定
-item.todo = todo.value 
-
-// フォームをリセット
-todo.value = '';
-
-console.log(item); // 確認
-
-}
-

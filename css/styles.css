@@ -27,7 +27,7 @@ form {
   display: flex;
 }
 
-input[id="todo"] {
+input[id="input-todo-box"] {
   width: 310px;
   height: 30px;
   outline: 0;
@@ -39,7 +39,7 @@ input[id="todo"] {
 button {
   display: inline-block;
   font-size: 1.5em;
-  color: #53BDFF;
+  color: #53bdff;
   background-color: #fff;
   border: none;
   outline: 0;
@@ -59,14 +59,21 @@ ul {
 }
 
 li {
-  border-bottom: 1px solid #53BDFF;
+  border-bottom: 1px solid #53bdff;
   padding-bottom: 15px;
   padding-top: 15px;
   font-size: 1.3em;
   color: #2f4f4f;
 }
 
-.delete {
+span {
+  background-color: #ff6161;
+  padding: 0px 3px 0px 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#delete {
   background-color: #ff6161;
   padding: 0px 3px 0px 3px;
   color: #fff;
