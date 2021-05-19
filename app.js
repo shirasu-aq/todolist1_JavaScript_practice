@@ -1,5 +1,7 @@
 "use strict";
 
+const todoListElement = document.getElementById("todo-list");
+
 // 登録したタスクを表示
 const addTask = (task) => {
   // liタグの生成
@@ -23,7 +25,6 @@ const addTask = (task) => {
   todoDescription.innerText = task;
   listItem.appendChild(todoDescription);
 
-  const todoListElement = document.getElementById("todo-list");
   // 動的に子要素を追加
   todoListElement.appendChild(listItem);
 
