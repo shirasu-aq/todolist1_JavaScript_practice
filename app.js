@@ -57,5 +57,7 @@ const clearButton = document.getElementById("clear");
 // クリアボタンを押して全てのTodoを削除
 clearButton.addEventListener("click", () => removeAllTask(clearButton));
 const removeAllTask = () => {
-  todoListElement.innerHTML = "";
+  while (todoListElement.firstChild) {
+    todoListElement.removeChild(todoListElement.firstChild);
+  }
 };
