@@ -11,13 +11,13 @@
  * チェックボタンを追加する
  * inputした内容を追加する
  */
+const ulTag = document.getElementById("todo-list");
 
 // ADDを押したら(id='submit'のsubmitメソッドを実行したら)行を追加する
 const formTag = document.getElementById("submit");
 formTag.addEventListener("submit", (event) => {
   event.preventDefault();
   const liTag = document.createElement("li");
-  const ulTag = document.getElementById("todo-list");
 
   // バツボタンを追加する
   const deleteButton = document.createElement("span");
@@ -39,4 +39,12 @@ formTag.addEventListener("submit", (event) => {
   ulTag.appendChild(liTag);
 
   inputTag.value = "";
+});
+
+// 全件削除
+// Clearボタンを取得
+// Clearボタンを押したら、全てのToDoListを消す
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => {
+  ulTag.innerText = "";
 });
