@@ -15,6 +15,7 @@
 // ADDを押したら(id='submit'のsubmitメソッドを実行したら)行を追加する
 const formTag = document.getElementById("submit");
 formTag.addEventListener("submit", (event) => {
+  event.preventDefault();
   const liTag = document.createElement("li");
   const ulTag = document.getElementById("todo-list");
 
@@ -36,6 +37,4 @@ formTag.addEventListener("submit", (event) => {
   liTag.appendChild(inputLabel);
 
   ulTag.appendChild(liTag);
-
-  event.preventDefault();
 });
