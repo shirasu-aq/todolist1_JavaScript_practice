@@ -30,7 +30,9 @@ formTag.addEventListener("submit", (event) => {
 
   // inputした内容を追加する
   const inputLabel = document.createElement("label");
-  inputLabel.innerText = "dummyText";
+  // inputに入力した内容をinputLabelのinnerTextに入れる。
+  const inputTag = document.getElementById("input-todo-box");
+  inputLabel.innerText = inputTag.value;
   liTag.appendChild(inputLabel);
 
   ulTag.appendChild(liTag);
