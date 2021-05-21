@@ -17,6 +17,22 @@ const formTag = document.getElementById("submit");
 formTag.addEventListener("submit", (event) => {
   const liTag = document.createElement("li");
   const ulTag = document.getElementById("todo-list");
+
+  // バツボタンを追加する
+  const deleteButton = document.createElement("span");
+  deleteButton.innerText = "×";
+  liTag.appendChild(deleteButton);
+
+  // チェックボタンを追加する
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  liTag.appendChild(checkbox);
+
+  // inputした内容を追加する
+  const inputLabel = document.createElement("label");
+  inputLabel.innerText = "dummyText";
+  liTag.appendChild(inputLabel);
+
   ulTag.appendChild(liTag);
 
   event.preventDefault();
