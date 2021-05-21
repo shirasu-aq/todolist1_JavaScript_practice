@@ -37,4 +37,6 @@ formTag.addEventListener("submit", (event) => {
   liTag.appendChild(inputLabel);
 
   ulTag.appendChild(liTag);
+
+  inputTag.value = "";
 });
