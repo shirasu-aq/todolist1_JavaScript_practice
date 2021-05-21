@@ -22,6 +22,9 @@ formTag.addEventListener("submit", (event) => {
   // バツボタンを追加する
   const deleteButton = document.createElement("span");
   deleteButton.innerText = "×";
+  deleteButton.addEventListener("click", () => {
+    liTag.remove();
+  });
   liTag.appendChild(deleteButton);
 
   // チェックボタンを追加する
