@@ -30,6 +30,7 @@ formTag.addEventListener("submit", (event) => {
   // チェックボタンを追加する
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
+
   liTag.appendChild(checkbox);
 
   // inputした内容を追加する
@@ -37,6 +38,15 @@ formTag.addEventListener("submit", (event) => {
   // inputに入力した内容をinputLabelのinnerTextに入れる。
   const inputTag = document.getElementById("input-todo-box");
   inputLabel.innerText = inputTag.value;
+
+  checkbox.addEventListener("click", () => {
+    if (checkbox.checked) {
+      inputLabel.setAttribute("class", "isChecked");
+    } else {
+      inputLabel.removeAttribute("class", "isChecked");
+    }
+  });
+
   liTag.appendChild(inputLabel);
 
   ulTag.appendChild(liTag);
@@ -51,3 +61,5 @@ const clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", () => {
   ulTag.innerText = "";
 });
+
+// チェックが入っているTODOはスタイルを変える

@@ -37,7 +37,7 @@ input[id="input-todo-box"] {
 }
 
 /** チェックONなら表示 */
-input:checked + label {
+.isChecked {
   text-decoration: line-through;
   color: red;
 }
