@@ -1,6 +1,6 @@
 "use strict";
 
-const addButton = document.getElementById("submit");
+const addButton = document.getElementById("add");
 
 // アドボタンを押してul表示;
 addButton.addEventListener("click", () => {
@@ -8,6 +8,9 @@ addButton.addEventListener("click", () => {
   const taskList = document.createElement("li");
   taskHolder.appendChild(taskList);
   event.preventDefault();
-});
 
-// const todoList = document.getElementById("to-dolist");
+  // 削除ボタン表示
+  const deleteButton = document.createElement("span");
+  deleteButton.innerText = "×";
+  taskList.appendChild(deleteButton);
+});
