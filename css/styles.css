@@ -79,13 +79,6 @@ span {
   cursor: pointer;
 }
 
-#delete {
-  background-color: #ff6161;
-  padding: 0px 3px 0px 3px;
-  color: #fff;
-  cursor: pointer;
-}
-
 a {
   float: right;
   text-align: right;
