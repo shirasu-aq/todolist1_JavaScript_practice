@@ -13,4 +13,16 @@ addButton.addEventListener("click", () => {
   const deleteButton = document.createElement("span");
   deleteButton.innerText = "×";
   taskList.appendChild(deleteButton);
+
+  // チェックボックス表示
+  const checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+  taskList.appendChild(checkBox);
+
+  const taskLabel = document.createElement("label");
+  // タスク登録
+  const textBox = document.getElementById("input-todo-box");
+  // 登録する
+  taskLabel.innerText = textBox.value;
+  taskList.appendChild(taskLabel);
 });
