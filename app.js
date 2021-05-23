@@ -24,6 +24,14 @@ addButton.addEventListener("click", () => {
   const checkBox = document.createElement("input");
   checkBox.setAttribute("type", "checkbox");
   taskList.appendChild(checkBox);
+  // チェックボタンを押した後の挙動追加
+  checkBox.addEventListener("click", () => {
+    if (checkBox.checked) {
+      taskLabel.setAttribute("class", "deleteline");
+    } else {
+      taskLabel.removeAttribute("class", "deleteline");
+    }
+  });
 
   const taskLabel = document.createElement("label");
   // タスク登録
