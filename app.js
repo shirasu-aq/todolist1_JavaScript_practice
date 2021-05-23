@@ -15,7 +15,9 @@ addButton.addEventListener("click", () => {
   taskList.appendChild(deleteButton);
   // 削除ボタンを押すと削除
   deleteButton.addEventListener("click", () => {
-    taskList.remove();
+    const pointTask = deleteButton.closest("li");
+    taskList.remove(pointTask);
+    // ↑18行目なくして、taskList.remove()でも可能
   });
 
   // チェックボックス表示
