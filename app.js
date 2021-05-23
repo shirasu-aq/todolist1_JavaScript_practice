@@ -13,6 +13,10 @@ addButton.addEventListener("click", () => {
   const deleteButton = document.createElement("span");
   deleteButton.innerText = "×";
   taskList.appendChild(deleteButton);
+  // 削除ボタンを押すと削除
+  deleteButton.addEventListener("click", () => {
+    taskList.remove();
+  });
 
   // チェックボックス表示
   const checkBox = document.createElement("input");
