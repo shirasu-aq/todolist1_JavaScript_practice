@@ -1,9 +1,10 @@
 "use strict";
+const taskHolder = document.getElementById("todo-list");
 
 const addButton = document.getElementById("add");
 // アドボタンを押してul表示;
 addButton.addEventListener("click", () => {
-  const taskHolder = document.getElementById("todo-list");
+  // const taskHolder = document.getElementById("todo-list");
   const taskList = document.createElement("li");
   taskHolder.appendChild(taskList);
   event.preventDefault();
@@ -24,9 +25,11 @@ addButton.addEventListener("click", () => {
   // 登録する
   taskLabel.innerText = textBox.value;
   taskList.appendChild(taskLabel);
+  // 入力した文字を空にする
+  textBox.value = "";
 });
 
 const clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", () => {
-  console.log("クリア");
+  taskHolder.innerText = "";
 });
