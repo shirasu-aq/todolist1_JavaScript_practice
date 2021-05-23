@@ -1,7 +1,6 @@
 "use strict";
 
 const addButton = document.getElementById("add");
-
 // アドボタンを押してul表示;
 addButton.addEventListener("click", () => {
   const taskHolder = document.getElementById("todo-list");
@@ -25,4 +24,9 @@ addButton.addEventListener("click", () => {
   // 登録する
   taskLabel.innerText = textBox.value;
   taskList.appendChild(taskLabel);
+});
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => {
+  console.log("クリア");
 });
